@@ -1,3 +1,11 @@
+<ul>
 <?php
+foreach ($usuarios as $usuario) {
+	?>
 
-echo $this->olaMundo;
+		<li><?php echo $usuario->NM_USUARIO; ?></li>		
+			
+	<?php
+}
+?>
+	</ul>

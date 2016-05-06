@@ -14,6 +14,9 @@ use Zend\View\Model\ViewModel;
 
 class UsuarioController extends AbstractActionController
 {
+
+    protected $usuarioTable;
+
     public function indexAction()
     {
 
@@ -21,6 +24,7 @@ class UsuarioController extends AbstractActionController
         return new ViewModel(
                 array(
                         'olaMundo' => $var,
+                        'usuarios' => $this->getUsuarioTable()->fetchAll(),
                     )
             );
     }
@@ -31,5 +35,13 @@ class UsuarioController extends AbstractActionController
                         'adbar' => $var,
                     )
             );	
+    }
+
+    public function getUsuarioTable() {
+        if (!$this->usuarioTable) {
+            $sm = $this->getServiceLocator();
+            $this->usuarioTable = $sm->get('Usuario\Model\UsuarioTable');
+        }
+        return $this->usuarioTable;
     }
 }
