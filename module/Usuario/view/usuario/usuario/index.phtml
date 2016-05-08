@@ -1,11 +1,13 @@
 <ul>
-<?php
-foreach ($usuarios as $usuario) {
-	?>
+    <?php
+    foreach ($usuarios as $usuario) {
+        ?>
 
-		<li><?php echo $usuario->NM_USUARIO; ?></li>		
-			
-	<?php
-}
-?>
-	</ul>
+        <li><?php echo $usuario->NM_USUARIO; ?>
+            <a href="<?php echo $this->url('usuario',array('action'=>'foo','id'=>$usuario->ID_USUARIO)); ?>"> editar</a>
+        </li>		
+
+        <?php
+    }
+    ?>
+</ul>
