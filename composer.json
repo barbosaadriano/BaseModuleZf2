@@ -9,6 +9,14 @@
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.5",
-        "zendframework/zendframework": "~2.5"
+        "zendframework/zendframework": "2.4"
+    },
+    "minimum-stability":"dev",
+    "require-dev":{
+        "doctrine/doctrine-orm-module":"dev-master",
+        "doctrine/data-fixtures":"dev-master"
+    },
+    "config": {
+        "bin-dir":"bin"
     }
 }
