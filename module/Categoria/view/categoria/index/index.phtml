@@ -1,0 +1,42 @@
+<a href="<?php echo $this->url('categoria/default', array('controller' => 'categoria', 'action' => 'inserir')) ?>" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp; cadastrar</a>
+<?php
+if ($this->success)
+    echo '<div class="alert alert-success">' . $this->success[0] . '<button type="button" class="close" data-dismiss="alert">x</button></div>';
+if ($this->error)
+    echo '<div class="alert alert-error">' . $this->error[0] . '<button type="button" class="close" data-dismiss="alert">x</button></div>';
+?>
+
+<hr/>
+<br/>
+<table class="table table-bordered table-striped">
+    <caption>Todas as Categorias</caption>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        if ($this->data):
+            foreach ($this->data as $entity):
+                ?>
+                <tr>
+                    <td><?php echo $entity->getId(); ?></td>
+                    <td><?php echo $entity->getNome(); ?></td>
+                    <td>
+                        <a href="<?php echo $this->url('categoria/default', array('controller' => 'categoria', 'action' => 'editar', 'id' => $entity->getId())) ?>" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="<?php echo $this->url('categoria/default', array('controller' => 'categoria', 'action' => 'remover', 'id' => $entity->getId())) ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+
+                    </td>
+                </tr>
+                <?php
+            endforeach;
+        else:
+            ?>
+        <p>Nenhum registro encontrado!</p>
+    <?php endif; ?>
+
+</tbody>
+</table>
