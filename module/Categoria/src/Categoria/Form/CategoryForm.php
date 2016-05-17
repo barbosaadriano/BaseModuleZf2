@@ -17,6 +17,7 @@ class CategoryForm extends Form {
     public function __construct() {
         parent::__construct(null);
         $this->setAttribute("method", "POST");
+        $this->setAttribute("class", "form-horizontal");
 
         $this->setInputFilter(new CategoryFilter());
 
