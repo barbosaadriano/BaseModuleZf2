@@ -40,3 +40,7 @@ if ($this->error)
 
 </tbody>
 </table>
+
+<?php
+    echo $this->paginationControl($this->data,'Sliding','partials/paginator',array('route'=>'categoria/paginator'));
+?>
