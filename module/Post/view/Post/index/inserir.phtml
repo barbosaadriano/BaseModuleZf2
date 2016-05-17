@@ -1,0 +1,25 @@
+<h2>Cadastro de Post</h2>
+<br/>
+<a href="<?php echo $this->url('post/default', array('controller' => 'post', 'action' => 'index')) ?>" class="btn btn-warning"><i class="glyphicon glyphicon-backward"></i>&nbsp;voltar à lista</a>
+<hr/>
+<?php
+/**
+ * @var $form Zend\Form\Form
+ */
+$form = $this->form;
+
+if ($this->success)
+    echo '<div class="alert alert-success">' . $this->success[0] . '<button type="button" class="close" data-dismiss="alert">x</button></div>';
+if ($this->error)
+    echo '<div class="alert alert-danger">' . $this->error[0] . '<button type="button" class="close" data-dismiss="alert">x</button></div>';
+
+$this->formElementErrors()
+        ->setMessageOpenFormat('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">x</button>')
+        ->setMessageCloseString('</div>')
+        ->render($form);
+$form->setAttribute('action', $this->url('post/default', array('controller' => 'post', 'action' => 'inserir')));
+
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
